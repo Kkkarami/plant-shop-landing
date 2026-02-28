@@ -11,6 +11,11 @@ body {
   background-color: $white;
 }
 
+h2 {
+  font-size: 40px;
+  color: $text-light;
+}
+
 .hero {
   display: flex;
   width: 1280px;
@@ -145,7 +150,7 @@ body {
 }
 
 .features {
-  padding: 140px 0 25px;
+  padding: 140px 0 20px;
   display: flex;
   justify-content: center;
 
@@ -166,18 +171,18 @@ body {
       gap: 12px;
       margin-bottom: 15px;
       img { margin-left: -5px;width: 48px; height: 48px; }
-      .feature-title { margin-top: 2px;font-size: 16px; color: $primary-color; line-height: 1.3; }
+      .feature-title { margin-left: 5px;margin-top: 2px;font-size: 16px;color: $primary-color; line-height: 1.3; }
     }
 
     .feature-text { font-size: 10px; line-height: 1.6; color: $text-dark; opacity: 0.8; }
   }
 }
 
-// Секція Рослин
 .featured-plants {
   padding: 60px 0;
   display: flex;
   justify-content: center;
+  margin-left: 15px;
 
   &__container { width: 1168px; }
 
@@ -217,9 +222,135 @@ body {
     .plant-card {
       width: 217px;
       text-align: center;
-      img { width: 100%; margin-bottom: 18px; }
+      img { width: 100%; margin-bottom: 14px; }
       .plant-name { margin-bottom: 8px; font-size: 16px; }
       .plant-idr { font-weight: 600; color: $text-dark; }
+    }
+  }
+}
+
+.main-info {
+  padding: 28px 0px; 
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+
+  .info-container {
+    width: 1168px; 
+    display: flex;
+    gap: 80px; 
+  }
+
+  .info-text-side {
+    flex: 0 0 522px; 
+    display: flex;
+    flex-direction: column;
+
+    .info-title {
+      font-weight: 700;
+      line-height: 1.4;
+      margin-left: 25px;
+      margin-bottom: 18px;
+      max-width: 522px;
+    }
+
+    .info-description {
+      font-size: 16px;
+      line-height: 1.78;
+      color: $text-light;
+      margin-left: 20px;
+      margin-bottom: 72px;
+      max-width: 506px
+    }
+
+    .info-image-small {
+      width: 568px;
+      height: 250px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .info-image-large {
+    flex: 1;
+    width: 513px;
+    height: 610px;
+    margin-top: -7px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+
+.shop-banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1168px;
+  height: 360px;
+  margin: 52px auto;
+  background-color: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 610px;
+    padding-left: 30px;
+    margin-left: 70px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+
+    h2 {
+      margin-top: 85px;
+      font-size: 40px;    
+      letter-spacing: 0.2px;  
+      line-height: 1.38;
+      margin-bottom: 32px;
+      font-weight: 700;
+    }
+  }
+
+  &__button {
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 152px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+
+  &__img {
+    flex: 0 0 480px;
+    width: 480px;
+    height: 360px;
+    display: flex;
+    
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: top top;
+      transform: scale(1.5) translateY(-7%);
     }
   }
 }

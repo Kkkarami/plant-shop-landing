@@ -9,6 +9,11 @@ body {
   background-color: #ffffff;
 }
 
+h2 {
+  font-size: 40px;
+  color: rgb(44, 21, 0);
+}
+
 .hero {
   display: flex;
   width: 1280px;
@@ -158,7 +163,7 @@ body {
 }
 
 .features {
-  padding: 140px 0 25px;
+  padding: 140px 0 20px;
   display: flex;
   justify-content: center;
 }
@@ -184,6 +189,7 @@ body {
   height: 48px;
 }
 .features .feature-card .feature-header .feature-title {
+  margin-left: 5px;
   margin-top: 2px;
   font-size: 16px;
   color: #156963;
@@ -200,6 +206,7 @@ body {
   padding: 60px 0;
   display: flex;
   justify-content: center;
+  margin-left: 15px;
 }
 .featured-plants__container {
   width: 1168px;
@@ -244,7 +251,7 @@ body {
 }
 .featured-plants .plants-list .plant-card img {
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .featured-plants .plants-list .plant-card .plant-name {
   margin-bottom: 8px;
@@ -253,4 +260,119 @@ body {
 .featured-plants .plants-list .plant-card .plant-idr {
   font-weight: 600;
   color: #333333;
+}
+
+.main-info {
+  padding: 28px 0px;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+}
+.main-info .info-container {
+  width: 1168px;
+  display: flex;
+  gap: 80px;
+}
+.main-info .info-text-side {
+  flex: 0 0 522px;
+  display: flex;
+  flex-direction: column;
+}
+.main-info .info-text-side .info-title {
+  font-weight: 700;
+  line-height: 1.4;
+  margin-left: 25px;
+  margin-bottom: 18px;
+  max-width: 522px;
+}
+.main-info .info-text-side .info-description {
+  font-size: 16px;
+  line-height: 1.78;
+  color: rgb(44, 21, 0);
+  margin-left: 20px;
+  margin-bottom: 72px;
+  max-width: 506px;
+}
+.main-info .info-text-side .info-image-small {
+  width: 568px;
+  height: 250px;
+  overflow: hidden;
+}
+.main-info .info-text-side .info-image-small img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-info .info-image-large {
+  flex: 1;
+  width: 513px;
+  height: 610px;
+  margin-top: -7px;
+}
+.main-info .info-image-large img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.shop-banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 1168px;
+  height: 360px;
+  margin: 52px auto;
+  background-color: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+}
+.shop-banner__title {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 610px;
+  padding-left: 30px;
+  margin-left: 70px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.shop-banner__title h2 {
+  margin-top: 85px;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+  line-height: 1.38;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+.shop-banner__button {
+  background-color: #156963;
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 152px;
+  height: 40px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+.shop-banner__img {
+  flex: 0 0 480px;
+  width: 480px;
+  height: 360px;
+  display: flex;
+}
+.shop-banner__img img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: top top;
+     object-position: top top;
+  transform: scale(1.5) translateY(-7%);
 }/*# sourceMappingURL=style.css.map */
