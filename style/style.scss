@@ -297,7 +297,7 @@ h2 {
   justify-content: space-between;
   width: 1168px;
   height: 360px;
-  margin: 52px auto;
+  margin: 52px auto 5px;
   background-color: #f2f2f2;
   position: relative;
   overflow: hidden;
@@ -351,6 +351,140 @@ h2 {
       object-fit: contain;
       object-position: top top;
       transform: scale(1.5) translateY(-7%);
+    }
+  }
+}
+
+.footer {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+
+  &__container {
+    width: 1168px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0; 
+    margin: 0 auto;
+  }
+
+  &__divider {
+    width: 1168px;
+    border: none;
+    border-top: 1px solid $border-gray;
+    margin-bottom: 48px;  
+  }
+
+  &__brand {
+    flex: 0 0 300px;
+    margin-left: 116px;
+    margin-top: 5px;
+
+    .footer__logo {
+      font-size: 24px;
+      font-weight: 500;
+      color: $primary-color;
+      margin-bottom: 25px;
+      letter-spacing: 0px;
+      line-height: 1;
+    }
+
+    .footer__address-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-left: 2px;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      color: $text-dark;
+    }
+
+    .footer__address-text {
+      font-size: 13px;
+      font-weight: 200;
+      line-height: 1.6;
+      margin-left: 3px;
+      color: $text-dark;
+      max-width: 300px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    margin-left: 50px;
+    gap: 40px;
+  }
+
+  &__col {
+    flex: 0 0 120px;
+    margin-left: 14px;
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-bottom: 16px;
+      color: $text-dark;
+    }
+
+    ul {
+      list-style: none;
+      li {
+        margin-bottom: 15px;
+        a {
+          text-decoration: none;
+          color: $text-dark;
+          font-size: 14px;
+          transition: color 0.3s;
+          &:hover { color: $primary-color; }
+        }
+      }
+    }
+  }
+
+  &__subscribe {
+    flex: 0 0 250px;
+    margin-left: 94px;
+    margin-top: 4px; 
+    padding-right: 20px;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: $text-dark;
+    }
+
+    .subscribe-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      input {
+        width: 234px;
+        height: 32px;
+        padding: 0px 12px;
+        border: 1px solid $border-gray;
+        font-size: 12px;
+        outline: none;
+      }
+
+      .btn-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-color;
+        color: $white;
+        border: none;
+        padding: 10px 25px;
+        width: 51px;
+        height: 22px;
+        cursor: pointer;
+        font-size: 8px;
+        font-weight: 400;
+      }
     }
   }
 }

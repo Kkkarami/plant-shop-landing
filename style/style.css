@@ -323,7 +323,7 @@ h2 {
   justify-content: space-between;
   width: 1168px;
   height: 360px;
-  margin: 52px auto;
+  margin: 52px auto 5px;
   background-color: #f2f2f2;
   position: relative;
   overflow: hidden;
@@ -375,4 +375,126 @@ h2 {
   -o-object-position: top top;
      object-position: top top;
   transform: scale(1.5) translateY(-7%);
+}
+
+.footer {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.footer__container {
+  width: 1168px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0 auto;
+}
+.footer__divider {
+  width: 1168px;
+  border: none;
+  border-top: 1px solid rgb(224, 224, 224);
+  margin-bottom: 48px;
+}
+.footer__brand {
+  flex: 0 0 300px;
+  margin-left: 116px;
+  margin-top: 5px;
+}
+.footer__brand .footer__logo {
+  font-size: 24px;
+  font-weight: 500;
+  color: #156963;
+  margin-bottom: 25px;
+  letter-spacing: 0px;
+  line-height: 1;
+}
+.footer__brand .footer__address-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 2px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  color: #333333;
+}
+.footer__brand .footer__address-text {
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 1.6;
+  margin-left: 3px;
+  color: #333333;
+  max-width: 300px;
+}
+.footer__nav {
+  display: flex;
+  margin-left: 50px;
+  gap: 40px;
+}
+.footer__col {
+  flex: 0 0 120px;
+  margin-left: 14px;
+}
+.footer__col h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  color: #333333;
+}
+.footer__col ul {
+  list-style: none;
+}
+.footer__col ul li {
+  margin-bottom: 15px;
+}
+.footer__col ul li a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.footer__col ul li a:hover {
+  color: #156963;
+}
+.footer__subscribe {
+  flex: 0 0 250px;
+  margin-left: 94px;
+  margin-top: 4px;
+  padding-right: 20px;
+}
+.footer__subscribe h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333333;
+}
+.footer__subscribe .subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer__subscribe .subscribe-form input {
+  width: 234px;
+  height: 32px;
+  padding: 0px 12px;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 12px;
+  outline: none;
+}
+.footer__subscribe .subscribe-form .btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #156963;
+  color: #ffffff;
+  border: none;
+  padding: 10px 25px;
+  width: 51px;
+  height: 22px;
+  cursor: pointer;
+  font-size: 8px;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */
