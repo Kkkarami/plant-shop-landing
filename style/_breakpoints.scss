@@ -1,0 +1,17 @@
+@mixin respond-to($value) {
+  @media (max-width: ($value - 1px)) {
+    @content;
+  }
+}
+ 
+@mixin respond-up($value) {
+  @media (min-width: $value) {
+    @content;
+  }
+}
+ 
+@mixin respond-between($lower, $upper) {
+  @media (min-width: $lower) and (max-width: ($upper - 1px)) {
+    @content;
+  }
+}

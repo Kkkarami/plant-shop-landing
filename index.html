@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kembang Flower - Pixel Perfect</title>
+    <title>Plant Shop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,200 +11,243 @@
 </head>
 
 <body>
+    <button id="burgerMenu" class="burger" aria-label="Open menu" aria-expanded="false">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+    </button>
+
+    <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav__list">
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">Home</a></li>
+            <li class="mobile-nav__item mobile-nav__item--has-sub">
+                <a href="#" class="mobile-nav__link mobile-nav__link--parent">Shop</a>
+                <ul class="mobile-nav__submenu">
+                    <li><a href="#" class="mobile-nav__link">Kaktus Plants</a></li>
+                    <li><a href="#" class="mobile-nav__link">Landak Plants</a></li>
+                    <li><a href="#" class="mobile-nav__link">Kecubung Plants</a></li>
+                </ul>
+            </li>
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">About</a></li>
+            <li class="mobile-nav__item"><a href="#" class="mobile-nav__link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to dark theme">🌙</button>
+
+    <div id="modalWindow" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal__box">
+            <button class="modal__close" aria-label="Close modal">&times;</button>
+            <span class="modal__icon"></span>
+            <h3 class="modal__title" id="modalTitle"></h3>
+            <p class="modal__message" id="modalMessage"></p>
+        
+        </div>
+    </div>
+
     <section class="hero">
-        <div class="hero__image">
-            <div class="logo">
-                <img src="images/logo.png" alt="logo">
+        <div class="hero__image-side">
+            <div class="hero__logo logo">
+                <img src="images/logo.png" alt="logo" class="logo__img">
             </div>
-            <img src="images/plantmain.png" alt="plant" class="main-plant">
+            <img src="images/plantmain.png" alt="plant" class="hero__main-plant">
         </div>
 
         <div class="hero__content">
-            <header class="top-nav">
-                <div class="nav-actions">
-                    <div class="nav-icons-group">
-                        <img src="images/search1.png" alt="search" class="icon-search">
-                        <img src="images/shopping_cart1.png" alt="cart" class="icon-cart">
+            <header class="hero__nav top-nav">
+                <div class="top-nav__actions nav-actions">
+                    <div class="nav-actions__icons-group">
+                        <img src="images/search1.png" alt="search" class="nav-actions__icon">
+                        <img src="images/shopping_cart1.png" alt="cart" class="nav-actions__icon">
                     </div>
-                    <div class="nav-auth-group">
-                        <a href="#" class="nav-link">Sign Up</a>
-                        <button class="btn-signin">Sign In</button>
+                    <div class="nav-actions__auth-group">
+                        <a href="#" class="nav-actions__link">Sign Up</a>
+                        <button class="nav-actions__btn-signin btn-signin">Sign In</button>
                     </div>
                 </div>
             </header>
 
-            <div class="text-group">
-                <h1 class="hero__title">Kembang <br>Flower Mantap</h1>
-                <p class="hero__text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            <div class="hero__text-group text-group">
+                <h1 class="text-group__title">Kembang <br>Flower Mantap</h1>
+                <p class="text-group__text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
                 </p>
             </div>
 
-            <div class="pagination">
-                <div class="pag-item prev">
-                    <span class="pag-arrow">← Previous</span>
-                    <span class="pag-title">Kaktus Plant</span>
+            <div class="hero__pagination pagination">
+                <div class="pagination__item pagination__item--prev">
+                    <span class="pagination__arrow">← Previous</span>
+                    <span class="pagination__title">Kaktus Plant</span>
                 </div>
-                <div class="pag-item next">
-                    <span class="pag-arrow">Next →</span>
-                    <span class="pag-title">Rahasia Plant</span>
+                <div class="pagination__item pagination__item--next">
+                    <span class="pagination__arrow">Next →</span>
+                    <span class="pagination__title">Rahasia Plant</span>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="features">
         <div class="features__container">
-            <div class="feature-card">
-                <div class="feature-header">
-                    <img src="images/deliveryicon.png" alt="delivery" class="feature-img">
-                    <h3 class="feature-title">Fast <br> Delivery</h3>
+            <div class="features__card feature-card">
+                <div class="feature-card__header">
+                    <img src="images/deliveryicon.png" alt="delivery" class="feature-card__img">
+                    <h3 class="feature-card__title">Fast <br> Delivery</h3>
                 </div>
-                <div class="feature-info">
-                    <p class="feature-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
-                </div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-header">
-                    <img src="images/supporticon.png" alt="support" class="feature-img">
-                    <h3 class="feature-title">Great Customer <br> Service</h3>
-                </div>
-                <div class="feature-info">
-                    <p class="feature-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+                <div class="feature-card__info">
+                    <p class="feature-card__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-header">
-                    <img src="images/planticon.png" alt="plant" class="feature-img">
-                    <h3 class="feature-title">Original <br> Plants</h3>
+            <div class="features__card feature-card">
+                <div class="feature-card__header">
+                    <img src="images/supporticon.png" alt="support" class="feature-card__img">
+                    <h3 class="feature-card__title">Great Customer <br> Service</h3>
                 </div>
-                <div class="feature-info">
-                    <p class="feature-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+                <div class="feature-card__info">
+                    <p class="feature-card__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-header">
-                    <img src="images/dollaricon.png" alt="dollar" class="feature-img">
-                    <h3 class="feature-title">Affordable <br> Price</h3>
+            <div class="features__card feature-card">
+                <div class="feature-card__header">
+                    <img src="images/planticon.png" alt="plant" class="feature-card__img">
+                    <h3 class="feature-card__title">Original <br> Plants</h3>
                 </div>
-                <div class="feature-info">
-                    <p class="feature-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard </p>
+                <div class="feature-card__info">
+                    <p class="feature-card__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+            <div class="features__card feature-card">
+                <div class="feature-card__header">
+                    <img src="images/dollaricon.png" alt="dollar" class="feature-card__img">
+                    <h3 class="feature-card__title">Affordable <br> Price</h3>
+                </div>
+                <div class="feature-card__info">
+                    <p class="feature-card__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="featured-plants">
         <div class="featured-plants__container">
-            <div class="plants-header">
-                <div class="plants-header__title">
-                    <h4>Featured Plants</h4>
+            <div class="featured-plants__header plants-header">
+                <div class="plants-header__title-box">
+                    <h4 class="plants-header__title">Featured Plants</h4>
                 </div>
                 <div class="plants-header__select-sort">
-                    <p class="sort-style">Cheaper first</p>
-                    <img src="images/sort_seletcarrowimg.png" alt="arrow">
+                    <p class="plants-header__sort-text">Cheaper first</p>
+                    <img src="images/sort_seletcarrowimg.png" alt="arrow" class="plants-header__sort-icon">
                 </div>
                 <hr class="plants-header__hr">
             </div>
-            <div class="plants-list">
-                <div class="plant-card">
-                        <img src="images/kaktus_plantimg.png" alt="kaktus" class="plant-img">
-                        <div class="plant-info">
-                            <p class="plant-name">Kaktus Plants</p>
-                            <p class="plant-idr">IDR 85.000</p>
-                        </div>
+
+            <div class="featured-plants__list plants-list">
+                <div class="plants-list__item plant-card">
+                    <img src="images/kaktus_plantimg.png" alt="kaktus" class="plant-card__img">
+                    <div class="plant-card__info">
+                        <p class="plant-card__name">Kaktus Plants</p>
+                        <p class="plant-card__price">IDR 85.000</p>
+                    </div>
                 </div>
-                <div class="plant-card">
-                        <img src="images/landak_plantimg.png" alt="landak" class="plant-img">
-                        <div class="plant-info">
-                            <p class="plant-name">Landak Plants</p>
-                            <p class="plant-idr">IDR 105.000</p>
-                        </div>
+                <div class="plants-list__item plant-card">
+                    <img src="images/landak_plantimg.png" alt="landak" class="plant-card__img">
+                    <div class="plant-card__info">
+                        <p class="plant-card__name">Landak Plants</p>
+                        <p class="plant-card__price">IDR 105.000</p>
+                    </div>
                 </div>
-                <div class="plant-card">
-                        <img src="images/kecubung_plantimg.png" alt="kecubung1" class="plant-img">
-                        <div class="plant-info">
-                            <p class="plant-name">Kecubung Plants</p>
-                            <p class="plant-idr">IDR 85.000</p>
-                        </div>
+                <div class="plants-list__item plant-card">
+                    <img src="images/kecubung_plantimg.png" alt="kecubung1" class="plant-card__img">
+                    <div class="plant-card__info">
+                        <p class="plant-card__name">Kecubung Plants</p>
+                        <p class="plant-card__price">IDR 85.000</p>
+                    </div>
                 </div>
-                <div class="plant-card">
-                        <img src="images/kecubung_plant2img.png" alt="kecubung2" class="plant-img">
-                        <div class="plant-info">
-                            <p class="plant-name">Kecubung Plants</p>
-                            <p class="plant-idr">IDR 85.000</p>
-                        </div>
+                <div class="plants-list__item plant-card">
+                    <img src="images/kecubung_plant2img.png" alt="kecubung2" class="plant-card__img">
+                    <div class="plant-card__info">
+                        <p class="plant-card__name">Kecubung Plants</p>
+                        <p class="plant-card__price">IDR 85.000</p>
+                    </div>
                 </div>
-                <div class="plant-card">
-                        <img src="images/kecubung_plant3img.png" alt="kecubung3" class="plant-img">
-                        <div class="plant-info">
-                        <p class="plant-name">Kecubung Plants</p>
-                        <p class="plant-idr">IDR 85.000</p>
-                        </div>
+                <div class="plants-list__item plant-card">
+                    <img src="images/kecubung_plant3img.png" alt="kecubung3" class="plant-card__img">
+                    <div class="plant-card__info">
+                        <p class="plant-card__name">Kecubung Plants</p>
+                        <p class="plant-card__price">IDR 85.000</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section class="main-info">
-        <div class="info-container">
-            <div class="info-text-side">
-                <h2 class="info-title">Buy more plants, it <br> helps you to be relaxed</h2>
-                <p class="info-description">
+        <div class="main-info__container info-container">
+            <div class="info-container__text-side info-text-side">
+                <h2 class="info-text-side__title">Buy more plants, it <br> helps you to be relaxed</h2>
+                <p class="info-text-side__description">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida gravida aliquam. Pellentesque et lobortis nisl. Sed et mauris justo. Nulla eu enim non mauris maximus dignissim. Maecenas vitae eros sapien. Quisque pellentesque tempus dignissim.
                 </p>
-                <div class="info-image-small">
-                    <img src="images/plant_info.png" alt="small plant decorative">
+                <div class="info-text-side__image-small-wrapper info-image-small">
+                    <img src="images/plant_info.png" alt="small plant" class="info-image-small__img">
                 </div>
             </div>
-            <div class="info-image-large">
-                <img src="images/plant_wall.png" alt="wall plants decoration">
+            <div class="info-container__image-large-side info-image-large">
+                <img src="images/plant_wall.png" alt="wall plants" class="info-image-large__img">
             </div>
         </div>
     </section>
+
     <section class="shop-banner">
-        <div class="shop-banner__title">
-            <h2>Get your favourites plant on our shop now</h2>
+        <div class="shop-banner__content">
+            <h2 class="shop-banner__title-text">Get your favourites plant on our shop now</h2>
             <button class="shop-banner__button">Visit Shop</button>
         </div>
-        <div class="shop-banner__img">
-            <img src="images/plantinhand.png" alt="plantinhand">
+        <div class="shop-banner__image-wrapper">
+            <img src="images/plantinhand.png" alt="plant in hand" class="shop-banner__img">
         </div>
     </section>
+
     <footer class="footer">
         <hr class="footer__divider">
         <div class="footer__container">
-            <div class="footer__brand">
-                <h2 class="footer__logo">PLANTKU</h2>
-                <p class="footer__address-title">Plantku House</p>
-                <p class="footer__address-text">
+            <div class="footer__brand brand-info">
+                <h2 class="brand-info__logo">PLANTKU</h2>
+                <p class="brand-info__address-title">Plantku House</p>
+                <p class="brand-info__address-text">
                     Jl. Laksda Adisucipto No.51, Demangan, Kec.<br>
                     Depok, Kota Yogyakarta, Daerah Istimewa<br>
                     Yogyakarta 55282
                 </p>
             </div>
-            <div class="footer__nav">
-                <div class="footer__col">
-                    <h4>Perusahaan</h4>
-                    <ul>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Hubungi Kami</a></li>
+
+            <div class="footer__nav footer-nav">
+                <div class="footer-nav__col">
+                    <h4 class="footer-nav__title">Perusahaan</h4>
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><a href="#" class="footer-nav__link">Tentang Kami</a></li>
+                        <li class="footer-nav__item"><a href="#" class="footer-nav__link">Hubungi Kami</a></li>
                     </ul>
                 </div>
-                <div class="footer__col">
-                    <h4>Produk</h4>
-                    <ul>
-                        <li><a href="#">Tanaman</a></li>
-                        <li><a href="#">Tanaman Lain</a></li>
+                <div class="footer-nav__col">
+                    <h4 class="footer-nav__title">Produk</h4>
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><a href="#" class="footer-nav__link">Tanaman</a></li>
+                        <li class="footer-nav__item"><a href="#" class="footer-nav__link">Tanaman Lain</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="footer__subscribe">
-                <h4>Berlangganan Email Kami</h4>
-                <div class="subscribe-form">
-                    <input type="email" placeholder="Masukan Alamat Email">
-                    <button type="submit" class="btn-submit">Submit</button>
-                </div>
+            <div class="footer__subscribe subscribe-section">
+                <h4 class="subscribe-section__title">Berlangganan Email Kami</h4>
+                <form class="subscribe-section__form subscribe-form">
+                    <input type="email" placeholder="Masukan Alamat Email" class="subscribe-form__input">
+                    <button type="submit" class="subscribe-form__btn btn-submit">Submit</button>
+                </form>
             </div>
         </div>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'breakpoints' as *;
 
 * {
   margin: 0;
@@ -9,79 +10,34 @@
 body {
   font-family: $main-font;
   background-color: $white;
+  overflow-x: hidden;
 }
 
 h2 {
   font-size: 40px;
   color: $text-light;
-}
 
-.hero {
-  display: flex;
-  width: 1280px;
-  height: 740px;
-  margin: 0 auto;
-
-  &__image {
-    flex: 0 0 608px;
-    position: relative;
-
-    .logo {
-      position: absolute;
-      top: 40px;
-      left: 56px;
-      z-index: 10;
-      img { width: 36px; height: 36px; }
-    }
-
-    .main-plant {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+  @include respond-to(1280px) {
+    font-size: 32px;
   }
 
-  &__content {
-    flex: 1;
-    background-color: $white;
-    display: flex;
-    flex-direction: column;
+  @include respond-to(768px) {
+    font-size: 24px;
   }
 }
 
-.top-nav {
-  display: flex;
-  padding: 40px 56px 0 82px;
+img {
+  max-width: 100%;
+}
 
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-  }
+.logo {
+  &__img {
+    width: 36px;
+    height: 36px;
 
-  .nav-icons-group {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-left: 225px;
-    margin-top: 3px;
-    img { width: 20px; height: 20px; cursor: pointer; }
-  }
-
-  .nav-auth-group {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-    margin-left: auto;
-    margin-top: 2px;
-
-    .nav-link {
-      text-decoration: none;
-      color: $primary-color;
-      font-weight: 500;
-      font-size: 14px;
+    @include respond-to(768px) {
+      width: 28px;
+      height: 28px;
     }
   }
 }
@@ -95,26 +51,199 @@ h2 {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.3s;
-  &:hover { opacity: 0.9; }
+  white-space: nowrap;
+
+  @include respond-to(768px) {
+    width: 84px;
+    font-size: 12px;
+  }
+}
+
+
+.hero {
+  display: flex;
+  width: 1280px;
+  height: 740px;
+  margin: 0 auto;
+
+  @include respond-to(1280px) {
+    width: 100%;
+    height: auto;
+    min-height: 520px;
+  }
+
+  @include respond-to(768px) {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  &__image-side {
+    flex: 0 0 608px;
+    position: relative;
+
+    @include respond-to(1280px) {
+      flex: 0 0 45%;
+    }
+
+    @include respond-to(768px) {
+      flex: none;
+      width: 100%;
+      height: 240px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    top: 40px;
+    left: 56px;
+    z-index: 10;
+
+    @include respond-to(1280px) {
+      top: 24px;
+      left: 24px;
+    }
+
+    @include respond-to(768px) {
+      top: 16px;
+      left: 16px;
+    }
+  }
+
+  &__main-plant {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__content {
+    flex: 1;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+}
+
+.top-nav {
+  display: flex;
+  padding: 40px 56px 0 82px;
+
+  @include respond-to(1280px) {
+    padding: 24px 32px 0 32px;
+  }
+
+  @include respond-to(768px) {
+    padding: 16px 16px 0 16px;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &__icons-group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 225px;
+    margin-top: 3px;
+
+    @include respond-to(1280px) {
+      margin-left: auto;
+      gap: 20px;
+    }
+
+    @include respond-to(768px) {
+      gap: 12px;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    @include respond-to(768px) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__auth-group {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    margin-left: auto;
+    margin-top: 2px;
+
+    @include respond-to(1280px) {
+      gap: 16px;
+      margin-left: 16px;
+    }
+
+    @include respond-to(768px) {
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+
+    @include respond-to(768px) {
+      font-size: 12px;
+    }
+  }
 }
 
 .text-group {
   padding: 115px 0 0 80px;
 
-  .hero__title {
+  @include respond-to(1280px) {
+    padding: 60px 32px 0 32px;
+  }
+
+  @include respond-to(768px) {
+    padding: 28px 16px 0 16px;
+  }
+
+  &__title {
     font-size: 68px;
     font-weight: 500;
     line-height: 1.2;
     color: $primary-color;
     margin-bottom: 24px;
+
+    @include respond-to(1280px) {
+      font-size: 48px;
+    }
+
+    @include respond-to(768px) {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
   }
 
-  .hero__text {
+  &__text {
     font-size: 18px;
     line-height: 1.8;
     color: $text-light;
     max-width: 480px;
+
+    @include respond-to(1280px) {
+      font-size: 16px;
+      max-width: 100%;
+    }
+
+    @include respond-to(768px) {
+      font-size: 14px;
+      line-height: 1.6;
+    }
   }
 }
 
@@ -124,28 +253,102 @@ h2 {
   margin-top: auto;
   align-self: flex-end;
 
-  .pag-item {
+  @include respond-to(768px) {
+    margin-top: 24px;
+  }
+
+  &__item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: 160px;
     padding-top: 42px;
+
+    @include respond-to(1280px) {
+      height: 120px;
+      padding-top: 28px;
+    }
+
+    @include respond-to(768px) {
+      height: 90px;
+      padding-top: 20px;
+    }
+
+    &--prev {
+      flex: 1;
+      background-color: $white;
+      padding-left: 95px;
+
+      @include respond-to(1280px) {
+        padding-left: 32px;
+      }
+
+      @include respond-to(768px) {
+        padding-left: 16px;
+      }
+    }
+
+    &--next {
+      flex: 0 0 320px;
+      background-color: $primary-color;
+      padding-left: 48px;
+
+      @include respond-to(1280px) {
+        flex: 0 0 240px;
+        padding-left: 28px;
+      }
+
+      @include respond-to(768px) {
+        flex: 0 0 160px;
+        padding-left: 16px;
+      }
+    }
   }
 
-  .prev {
-    flex: 1;
-    background-color: $white;
-    padding-left: 95px;
-    .pag-arrow { color: #515151a2; font-weight: 400; margin-bottom: 13px; font-size: 24px; cursor: pointer; }
-    .pag-title { margin-left: -1px;font-size: 32px; color: $primary-color; }
+  &__arrow {
+    font-weight: 400;
+    margin-bottom: 13px;
+    font-size: 24px;
+    cursor: pointer;
+
+    @include respond-to(1280px) {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    @include respond-to(768px) {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .pagination__item--prev & {
+      color: #515151a2;
+    }
+
+    .pagination__item--next & {
+      color: rgba(242, 242, 242, 0.555);
+    }
   }
 
-  .next {
-    flex: 0 0 320px;
-    background-color: $primary-color;
-    padding-left: 48px;
-    .pag-arrow { color: rgba(242, 242, 242, 0.555); font-weight: 400; margin-bottom: 15px; font-size: 24px; cursor: pointer; }
-    .pag-title { font-size: 32px; color: $white; }
+  &__title {
+    font-size: 32px;
+
+    @include respond-to(1280px) {
+      font-size: 22px;
+    }
+
+    @include respond-to(768px) {
+      font-size: 14px;
+    }
+
+    .pagination__item--prev & {
+      color: $primary-color;
+      margin-left: -1px;
+    }
+
+    .pagination__item--next & {
+      color: $white;
+    }
   }
 }
 
@@ -154,27 +357,98 @@ h2 {
   display: flex;
   justify-content: center;
 
+  @include respond-to(1280px) {
+    padding: 80px 32px 20px;
+  }
+
+  @include respond-to(768px) {
+    padding: 40px 16px 16px;
+  }
+
   &__container {
     width: 1168px;
     display: flex;
     gap: 32px;
-  }
 
-  .feature-card {
-    flex: 1;
-    height: 155px;
-    padding: 24px 28px;
-    border: 1px solid $border-gray;
-
-    .feature-header {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 15px;
-      img { margin-left: -5px;width: 48px; height: 48px; }
-      .feature-title { margin-left: 5px;margin-top: 2px;font-size: 16px;color: $primary-color; line-height: 1.3; }
+    @include respond-to(1280px) {
+      width: 100%;
+      gap: 20px;
     }
 
-    .feature-text { font-size: 10px; line-height: 1.6; color: $text-dark; opacity: 0.8; }
+    @include respond-to(768px) {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+}
+
+.feature-card {
+  flex: 1;
+  height: 155px;
+  padding: 24px 28px;
+  border: 1px solid $border-gray;
+
+  @include respond-to(1280px) {
+    height: auto;
+    min-height: 130px;
+    padding: 20px;
+  }
+
+  @include respond-to(768px) {
+    flex: 0 0 calc(50% - 6px);
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  &__header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+
+    @include respond-to(768px) {
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__img {
+    margin-left: -5px;
+    width: 48px;
+    height: 48px;
+
+    @include respond-to(1280px) {
+      margin-left: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    @include respond-to(768px) {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__title {
+    margin-left: 5px;
+    margin-top: 2px;
+    font-size: 16px;
+    color: $primary-color;
+    line-height: 1.3;
+
+    @include respond-to(1280px) {
+      margin-left: 0;
+      font-size: 15px;
+    }
+
+    @include respond-to(768px) {
+      font-size: 13px;
+    }
+  }
+
+  &__text {
+    font-size: 10px;
+    line-height: 1.6;
+    color: $text-dark;
   }
 }
 
@@ -184,112 +458,244 @@ h2 {
   justify-content: center;
   margin-left: 15px;
 
-  &__container { width: 1168px; }
+  @include respond-to(1280px) {
+    margin-left: 0;
+    padding: 40px 32px;
+  }
 
-  .plants-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
+  @include respond-to(768px) {
+    padding: 24px 16px;
+  }
 
-    &__title h4 { font-size: 20px; color: $text-dark; }
+  &__container {
+    width: 1168px;
 
-    &__select-sort {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      border: 1px solid $border-gray;
-      padding: 8px 12px;
-      font-size: 12px;
-      cursor: pointer;
-      img { width: 12px; }
+    @include respond-to(1280px) {
+      width: 100%;
     }
+  }
+}
 
-    &__hr {
-      flex: 0 0 100%;
-      margin-top: 15px;
-      border: 0;
-      border-top: 1px solid $border-gray;
+.plants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+
+  &__title {
+    font-size: 20px;
+    color: $text-dark;
+
+    @include respond-to(768px) {
+      font-size: 17px;
     }
   }
 
-  .plants-list {
+  &__select-sort {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid $border-gray;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+  }
 
-    .plant-card {
-      width: 217px;
-      text-align: center;
-      img { width: 100%; margin-bottom: 14px; }
-      .plant-name { margin-bottom: 8px; font-size: 16px; }
-      .plant-idr { font-weight: 600; color: $text-dark; }
+  &__sort-icon {
+    width: 12px;
+  }
+
+  &__hr {
+    flex: 0 0 100%;
+    margin-top: 15px;
+    border: 0;
+    border-top: 1px solid $border-gray;
+  }
+}
+
+.plants-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  @include respond-to(768px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}
+
+.plant-card {
+  width: 217px;
+  text-align: center;
+
+  @include respond-to(1280px) {
+    width: calc(20% - 16px);
+    flex: 1;
+  }
+
+  @include respond-to(768px) {
+    width: calc(50% - 6px);
+    flex: 0 0 calc(50% - 6px);
+  }
+
+  &__img {
+    width: 100%;
+    margin-bottom: 14px;
+
+    @include respond-to(768px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name {
+    margin-bottom: 8px;
+    font-size: 16px;
+
+    @include respond-to(768px) {
+      font-size: 14px;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+    color: $text-dark;
+
+    @include respond-to(768px) {
+      font-size: 14px;
     }
   }
 }
 
 .main-info {
-  padding: 28px 0px; 
+  padding: 28px 0;
   display: flex;
   justify-content: center;
   margin-left: 20px;
 
-  .info-container {
-    width: 1168px; 
-    display: flex;
-    gap: 80px; 
+  @include respond-to(1280px) {
+    margin-left: 0;
+    padding: 40px 32px;
   }
 
-  .info-text-side {
-    flex: 0 0 522px; 
-    display: flex;
-    flex-direction: column;
-
-    .info-title {
-      font-weight: 700;
-      line-height: 1.4;
-      margin-left: 25px;
-      margin-bottom: 18px;
-      max-width: 522px;
-    }
-
-    .info-description {
-      font-size: 16px;
-      line-height: 1.78;
-      color: $text-light;
-      margin-left: 20px;
-      margin-bottom: 72px;
-      max-width: 506px
-    }
-
-    .info-image-small {
-      width: 568px;
-      height: 250px;
-      overflow: hidden;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
+  @include respond-to(768px) {
+    padding: 24px 16px;
   }
 
-  .info-image-large {
-    flex: 1;
-    width: 513px;
-    height: 610px;
-    margin-top: -7px;
-    
-    img {
+  &__container {
+    width: 1168px;
+    display: flex;
+    gap: 80px;
+
+    @include respond-to(1280px) {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      gap: 40px;
+    }
+
+    @include respond-to(768px) {
+      flex-direction: column;
+      gap: 20px;
     }
   }
 }
 
+.info-text-side {
+  flex: 0 0 522px;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(1280px) {
+    flex: 0 0 48%;
+  }
+
+  @include respond-to(768px) {
+    flex: none;
+    width: 100%;
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 1.4;
+    margin-left: 25px;
+    margin-bottom: 18px;
+    max-width: 522px;
+    color: $text-light;
+
+    @include respond-to(1280px) {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    @include respond-to(768px) {
+      font-size: 22px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 1.78;
+    color: $text-light;
+    margin-left: 20px;
+    margin-bottom: 72px;
+    max-width: 506px;
+
+    @include respond-to(1280px) {
+      margin-left: 0;
+      margin-bottom: 32px;
+      max-width: 100%;
+    }
+
+    @include respond-to(768px) {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.info-image-small {
+  width: 568px;
+  height: 250px;
+  overflow: hidden;
+
+  @include respond-to(1280px) {
+    width: 100%;
+    height: 220px;
+  }
+
+  @include respond-to(768px) {
+    height: 180px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info-image-large {
+  flex: 1;
+  width: 513px;
+  height: 610px;
+  margin-top: -7px;
+
+  @include respond-to(1280px) {
+    width: 100%;
+    height: 420px;
+    margin-top: 0;
+  }
+
+  @include respond-to(768px) {
+    height: 280px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 
 .shop-banner {
   display: flex;
@@ -302,23 +708,62 @@ h2 {
   position: relative;
   overflow: hidden;
 
-  &__title {
+  @include respond-to(1280px) {
+    width: calc(100% - 64px);
+    height: auto;
+    min-height: 280px;
+  }
+
+  @include respond-to(768px) {
+    width: calc(100% - 32px);
+    flex-direction: column;
+    margin: 24px auto 5px;
+  }
+
+  &__content {
     display: flex;
     flex-direction: column;
     flex: 0 0 610px;
     padding-left: 30px;
-    margin-left: 70px;
+    margin-left: 75px;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
 
-    h2 {
-      margin-top: 85px;
-      font-size: 40px;    
-      letter-spacing: 0.2px;  
-      line-height: 1.38;
-      margin-bottom: 32px;
-      font-weight: 700;
+    @include respond-to(1280px) {
+      flex: 0 0 55%;
+      margin-left: 40px;
+      padding-left: 20px;
+    }
+
+    @include respond-to(768px) {
+      flex: none;
+      width: 100%;
+      margin-left: 0;
+      padding: 28px 24px 24px;
+      height: auto;
+    }
+  }
+
+  &__title-text {
+    margin-top: 85px;
+    font-size: 40px;
+    letter-spacing: 0.2px;
+    line-height: 1.38;
+    margin-bottom: 32px;
+    font-weight: 700;
+    color: $text-light;
+
+    @include respond-to(1280px) {
+      margin-top: 48px;
+      font-size: 30px;
+      margin-bottom: 24px;
+    }
+
+    @include respond-to(768px) {
+      margin-top: 0;
+      font-size: 22px;
+      margin-bottom: 20px;
     }
   }
 
@@ -336,21 +781,48 @@ h2 {
     font-weight: 500;
     letter-spacing: 0.5px;
     cursor: pointer;
+
+
+    @include respond-to(768px) {
+      width: 130px;
+      height: 36px;
+      font-size: 13px;
+    }
   }
 
-  &__img {
+  &__image-wrapper {
     flex: 0 0 480px;
     width: 480px;
     height: 360px;
     display: flex;
-    
 
-    img {
-      height: 100%;
+    @include respond-to(1280px) {
+      flex: 0 0 40%;
+      width: 40%;
+      height: 280px;
+    }
+
+    @include respond-to(768px) {
+      flex: none;
       width: 100%;
-      object-fit: contain;
-      object-position: top top;
-      transform: scale(1.5) translateY(-7%);
+      height: 200px;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: top;
+    transform: scale(1.5) translateY(-7%);
+
+    @include respond-to(1280px) {
+      transform: scale(1.3) translateY(-5%);
+    }
+
+    @include respond-to(768px) {
+      transform: scale(1.2) translateY(-3%);
+      object-position: center bottom;
     }
   }
 }
@@ -363,128 +835,595 @@ h2 {
   justify-content: center;
   background-color: $white;
 
-  &__container {
-    width: 1168px;
-    display: flex;
-    justify-content: flex-start;
+  @include respond-to(1280px) {
+    padding: 60px 0;
+  }
+
+  @include respond-to(768px) {
+    padding: 40px 16px;
     align-items: flex-start;
-    padding: 0; 
-    margin: 0 auto;
   }
 
   &__divider {
     width: 1168px;
     border: none;
     border-top: 1px solid $border-gray;
-    margin-bottom: 48px;  
-  }
+    margin-bottom: 48px;
 
-  &__brand {
-    flex: 0 0 300px;
-    margin-left: 116px;
-    margin-top: 5px;
-
-    .footer__logo {
-      font-size: 24px;
-      font-weight: 500;
-      color: $primary-color;
-      margin-bottom: 25px;
-      letter-spacing: 0px;
-      line-height: 1;
+    @include respond-to(1280px) {
+      width: calc(100% - 64px);
+      margin-bottom: 36px;
     }
 
-    .footer__address-title {
-      font-weight: 600;
-      font-size: 16px;
-      margin-left: 2px;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-      color: $text-dark;
-    }
-
-    .footer__address-text {
-      font-size: 13px;
-      font-weight: 200;
-      line-height: 1.6;
-      margin-left: 3px;
-      color: $text-dark;
-      max-width: 300px;
+    @include respond-to(768px) {
+      width: 100%;
+      margin-bottom: 28px;
     }
   }
 
-  &__nav {
+  &__container {
+    width: 1168px;
     display: flex;
-    margin-left: 50px;
-    gap: 40px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 auto;
+
+    @include respond-to(1280px) {
+      width: calc(100% - 64px);
+      flex-wrap: wrap;
+      gap: 36px;
+    }
+
+    @include respond-to(768px) {
+      width: 100%;
+      flex-direction: column;
+      gap: 28px;
+    }
+  }
+}
+
+.brand-info {
+  flex: 0 0 300px;
+  margin-left: 116px;
+  margin-top: 5px;
+
+  @include respond-to(1280px) {
+    flex: 0 0 260px;
+    margin-left: 0;
+  }
+
+  @include respond-to(768px) {
+    flex: none;
+    margin-left: 0;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-weight: 500;
+    color: $primary-color;
+    margin-bottom: 25px;
+    letter-spacing: 0px;
+    line-height: 1;
+  }
+
+  &__address-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: 2px;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    color: $text-dark;
+  }
+
+  &__address-text {
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 1.6;
+    margin-left: 3px;
+    color: $text-dark;
+    max-width: 300px;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  margin-left: 50px;
+  gap: 40px;
+
+  @include respond-to(1280px) {
+    margin-left: 32px;
+    gap: 28px;
+  }
+
+  @include respond-to(768px) {
+    margin-left: 0;
+    gap: 24px;
   }
 
   &__col {
     flex: 0 0 120px;
     margin-left: 14px;
-    h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 4px;
-      margin-bottom: 16px;
-      color: $text-dark;
-    }
 
-    ul {
-      list-style: none;
-      li {
-        margin-bottom: 15px;
-        a {
-          text-decoration: none;
-          color: $text-dark;
-          font-size: 14px;
-          transition: color 0.3s;
-          &:hover { color: $primary-color; }
-        }
-      }
+    @include respond-to(1280px) {
+      margin-left: 0;
     }
   }
 
-  &__subscribe {
-    flex: 0 0 250px;
-    margin-left: 94px;
-    margin-top: 4px; 
-    padding-right: 20px;
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    color: $text-dark;
 
-    h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 15px;
+    @include respond-to(768px) {
+      font-size: 15px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $text-dark;
+    font-size: 14px;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.subscribe-section {
+  flex: 0 0 250px;
+  margin-left: 94px;
+  margin-top: 4px;
+  padding-right: 20px;
+
+  @include respond-to(1280px) {
+    margin-left: auto;
+    flex: 0 0 220px;
+    padding-right: 0;
+  }
+
+  @include respond-to(768px) {
+    margin-left: 0;
+    flex: none;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: $text-dark;
+
+    @include respond-to(768px) {
+      font-size: 15px;
+    }
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__input {
+    width: 234px;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid $border-gray;
+    font-size: 12px;
+    outline: none;
+    font-family: $main-font;
+
+    @include respond-to(768px) {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    padding: 10px 25px;
+    width: 51px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 8px;
+    font-weight: 400;
+    font-family: $main-font;
+  }
+}
+
+.burger {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+ 
+  @include respond-to(768px) {
+    display: flex;
+  }
+ 
+  &__line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $primary-color;
+ 
+    [data-theme='dark'] & {
+      background-color: #a8d5b5;
+    }
+  }
+}
+ 
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: $white;
+  z-index: 999;
+  border-left: 1px solid $border-gray;
+  padding: 60px 20px 24px;
+  overflow-y: auto;
+ 
+  [data-theme='dark'] & {
+    background-color: #1e2a28;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+ 
+  &.open {
+    display: block;
+  }
+ 
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  &__item {
+    border-bottom: 1px solid $border-gray;
+ 
+    [data-theme='dark'] & {
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+ 
+    &--has-sub > .mobile-nav__link--parent::after {
+      content: ' >';
+    }
+  }
+ 
+  &__link {
+    display: block;
+    padding: 12px 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-dark;
+    font-family: $main-font;
+ 
+    &:hover {
+      color: $primary-color;
+    }
+ 
+    [data-theme='dark'] & {
+      color: #e0e0e0;
+    }
+  }
+ 
+  &__submenu {
+    display: none;
+    list-style: none;
+    padding: 0 0 8px 14px;
+ 
+    .mobile-nav__item--has-sub.sub-open & {
+      display: block;
+    }
+ 
+    li {
+      border: none;
+    }
+ 
+    .mobile-nav__link {
+      font-size: 13px;
+      font-weight: 400;
+      padding: 7px 4px;
+      color: rgba(51, 51, 51, 0.75);
+ 
+      [data-theme='dark'] & {
+        color: rgba(224, 224, 224, 0.65);
+      }
+ 
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+ 
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+ 
+  &.active {
+    display: flex;
+  }
+ 
+  &__box {
+    position: relative;
+    width: 400px;
+    max-width: calc(100% - 32px);
+    background-color: $white;
+    padding: 36px 32px 28px;
+    text-align: center;
+    border: 1px solid $border-gray;
+ 
+    [data-theme='dark'] & {
+      background-color: #1e2a28;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+ 
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: rgba(51, 51, 51, 0.5);
+ 
+    &:hover {
       color: $text-dark;
     }
-
-    .subscribe-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-
-      input {
-        width: 234px;
-        height: 32px;
-        padding: 0px 12px;
-        border: 1px solid $border-gray;
-        font-size: 12px;
-        outline: none;
-      }
-
-      .btn-submit {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $primary-color;
-        color: $white;
-        border: none;
-        padding: 10px 25px;
-        width: 51px;
-        height: 22px;
-        cursor: pointer;
-        font-size: 8px;
-        font-weight: 400;
+ 
+    [data-theme='dark'] & {
+      color: rgba(224, 224, 224, 0.4);
+ 
+      &:hover {
+        color: #e0e0e0;
       }
     }
+  }
+ 
+  &__icon {
+    display: block;
+    font-size: 36px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+ 
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: $main-font;
+ 
+    [data-theme='dark'] & {
+      color: #e0e0e0;
+    }
+  }
+ 
+  &__message {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(51, 51, 51, 0.72);
+    margin-bottom: 24px;
+    font-family: $main-font;
+ 
+    [data-theme='dark'] & {
+      color: rgba(224, 224, 224, 0.6);
+    }
+  }
+ 
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+ 
+  &__btn {
+    padding: 8px 24px;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: $main-font;
+    cursor: pointer;
+ 
+    &--confirm {
+      background-color: $primary-color;
+      color: $white;
+    }
+ 
+    &--cancel {
+      background-color: transparent;
+      color: $text-dark;
+      border: 1px solid $border-gray;
+      position: static;
+ 
+      [data-theme='dark'] & {
+        color: #e0e0e0;
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+ 
+  &--info    .modal__box { border-top: 4px solid #2196f3; }
+  &--success .modal__box { border-top: 4px solid #4caf50; }
+ 
+  &--info    .modal__title { color: #1565c0; }
+  &--success .modal__title { color: #2e7d32; }
+ 
+  &--info    .modal__btn--confirm { background-color: #2196f3; }
+  &--success .modal__btn--confirm { background-color: #4caf50; }
+}
+ 
+body.modal-open {
+  overflow: hidden;
+}
+ 
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $border-gray;
+  background-color: $white;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+ 
+  [data-theme='dark'] & {
+    background-color: #1e2a28;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+ 
+[data-theme='dark'] {
+  body {
+    background-color: #121a18;
+    color: #e0e0e0;
+  }
+ 
+  h2 {
+    color: #e0e0e0;
+  }
+ 
+  .hero__content {
+    background-color: #1a2422;
+  }
+ 
+  .text-group__text {
+    color: rgba(224, 224, 224, 0.7);
+  }
+ 
+  .feature-card {
+    border-color: rgba(255, 255, 255, 0.08);
+    background-color: #1e2a28;
+ 
+    &__text {
+      color: rgba(224, 224, 224, 0.65);
+    }
+  }
+ 
+  .plant-card__name {
+    color: #e0e0e0;
+  }
+ 
+  .plant-card__price {
+    color: #a8d5b5;
+  }
+ 
+  .plants-header__title {
+    color: #e0e0e0;
+  }
+ 
+  .plants-header__select-sort {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+  }
+ 
+  .plants-header__hr {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+ 
+  .info-text-side__title,
+  .info-text-side__description {
+    color: #e0e0e0;
+  }
+ 
+  .shop-banner {
+    background-color: #1e2a28;
+ 
+    &__title-text {
+      color: #e0e0e0;
+    }
+  }
+ 
+  .footer {
+    background-color: #121a18;
+  }
+ 
+  .footer__divider {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+ 
+  .brand-info__logo {
+    color: #a8d5b5;
+  }
+ 
+  .brand-info__address-title,
+  .brand-info__address-text {
+    color: rgba(224, 224, 224, 0.7);
+  }
+ 
+  .footer-nav__title {
+    color: #e0e0e0;
+  }
+ 
+  .footer-nav__link {
+    color: rgba(224, 224, 224, 0.65);
+ 
+    &:hover {
+      color: #a8d5b5;
+    }
+  }
+ 
+  .subscribe-section__title {
+    color: #e0e0e0;
+  }
+ 
+  .subscribe-form__input {
+    background-color: #2a3a36;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #e0e0e0;
+ 
+    &::placeholder {
+      color: rgba(224, 224, 224, 0.35);
+    }
+  }
+ 
+  .nav-actions__link {
+    color: #a8d5b5;
+  }
+ 
+  .pagination__item--prev {
+    background-color: #1a2422;
   }
 }
